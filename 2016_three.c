@@ -6,10 +6,10 @@
 #include<stddef.h>
 #include<ctype.h>
 
-int main () {
+void assess_tri (int count) {
 
 	FILE* ptr;
-	int n[2], i;
+	int n[3], i, sum, inner_count;
 
 	ptr = fopen("2016_three.txt", "r");
 	while (i < 3) {
@@ -22,11 +22,32 @@ int main () {
 	for (i=0; i<3; i++) {
 		printf("\n%d\n", n[i]);
 		}
- 
+
+	sum = n[0] + n[1] + n[2];
+	
+	for (i=0; i<3; i++) {
+		if ((sum - n[i]) > (n[i])) {
+			inner_count = inner_count + 1;
+			}
+		}
+
+	if (inner_count == 3) {
+		count = count + 1;
+		printf("%d", count);
+		printf("this is a triangle");
+		}
+
+	else {
+		printf("this is NOT a triangle");
+		}
+
+	return;
+
 }
 
-void run () {
+int  main () {
 
-	main ();
+	assess_tri (0);
 
+return (0);
 }
