@@ -23,10 +23,22 @@ def read ():
 def calculate (*array):
 
 	count = 0 
-
+	x = 0
+	
 	for i in array:
-		if i == "(": count = (count + 1)
-		else: count = (count - 1)
-		print(count)
+		
+		if array[x] == "(":
+			count += 1
+			x += 1
+
+		else: 
+			count -= 1
+			x += 1
+
+# something must be going wrong here. It seems like theres only one item in array? I cant see any other reason
+
+	print(count)
+
+
 
 read()
