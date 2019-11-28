@@ -15,7 +15,6 @@ def read ():
 
 
 	#print(array)
-
 	calculate(array)
 
 
@@ -31,11 +30,12 @@ def calculate (array):
 			count += 1
 			x += 1
 
-		else: 
+		if array[x] == ")":
 			count -= 1
 			x += 1
 
-# something must be going wrong here. It seems like theres only one item in array? I cant see any other reason
+
+# got the counting to work. However its not the right number. I think maybe there are characters being counter as -1 other than )s
 
 	print(count)
 
