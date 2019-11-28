@@ -14,8 +14,19 @@ def read ():
 			break
 
 
-	print(array)
+	#print(array)
+
+	calculate(array)
 
 
+
+def calculate (*array):
+
+	count = 0 
+
+	for i in array:
+		if i == "(": count = (count + 1)
+		else: count = (count - 1)
+		print(count)
 
 read()
