@@ -20,8 +20,8 @@ def read ():
 
 
 
-def calculate (*array):
-
+def calculate (array):
+# This was the problem. Dont need to pass in a pointer.
 	count = 0 
 	x = 0
 	
