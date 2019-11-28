@@ -34,6 +34,10 @@ def calculate (array):
 			count -= 1
 			x += 1
 
+		if count < 0:
+			print(x)
+# here is the bit of code that returns the pt. 2 answer. X is the numer when he enters the basement.
+			break
 
 # got the counting to work. However its not the right number. I think maybe there are characters being counter as -1 other than )s
 
