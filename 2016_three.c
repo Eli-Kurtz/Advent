@@ -14,16 +14,9 @@ int triangulate (char x[], char y[], char z[], int *n2) {
 	int side3 = atoi(z);
 	int count = 0;
 
-	if (side1 < side2 + side3) {
-		count += 1;}
-	if (side2 < side1 + side3) {
-		count += 1;}
-	if (side3 < side1 + side2) {
-		count += 1;}
-
-	if (count == 3){
+	if (side1 < side2 + side3 && side2 < side1 + side3 && side3 < side1 + side2) {
 		(*n2)++;}
-
+//https://www.tutorialspoint.com/cprogramming/c_logical_operators.htm
 
 return 0;
 }
@@ -86,11 +79,13 @@ int main () {
 
 	}	
 
-	for (int i=0; i < n; i++) {
+	for (int i=0; i < n; i+=3) {
 	
 		triangulate(keeper[i], keeper[i+1], keeper[i+2], &n2);
 		printf("\n%d\n", n2);
 	}
+	
+	free(temp);
 
 	return 0;
 }
