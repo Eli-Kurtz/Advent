@@ -16,15 +16,21 @@ void reader (FILE *fp, int *n, char lines[][LEN_STR]) {
 	char buffer[LEN_STR] = {'\0'};
 
 	while (fgets (buffer, LEN_STR, fp) != NULL) {
-	
-	fscanf(buffer, "%s" "%s" "%s", lines[*n], lines[*n+1], lines[*n+2]);
+
+	scanf(buffer, "%s", lines[*n]);
+
+//	printf("hello");
+//	fscanf(buffer, "%s %s %s", lines[*n], lines[*n+1], lines[*n+2]);
 
 // https://www.tutorialspoint.com/c_standard_library/c_function_scanf.htm	
+
 //	strncpy (lines[*n], buffer, LEN_STR);
 
 // unsure if I need the third argument, LEN_STR. gcc says I do, but still seg fault.
 
 	(*n)++;
+
+//	printf("%s", lines[0]);
 
 	}
 
