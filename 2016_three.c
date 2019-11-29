@@ -10,10 +10,13 @@
 void reader (FILE *fp, int *n, char lines[][LEN_STR]) {
 
 	char buffer[LEN_STR] = {'\0'};
+	char test[10];
 
 	while (fgets (buffer, LEN_STR, fp) != NULL) {
 
-	sscanf (buffer, "%s %s %s", lines[*n], lines[*n+1], lines[*n+2]);
+	sscanf (buffer, "%s", test);
+
+//	sscanf (buffer, "%s %s %s", lines[*n], lines[*n+1], lines[*n+2]);
 
 //https://www.tutorialspoint.com/c_standard_library/c_function_sscanf.htm
 //This appears to be part of the problem. I cannot use fscanf or scanf because I am reading from a 1D array, not a file or i/o.
@@ -24,11 +27,15 @@ void reader (FILE *fp, int *n, char lines[][LEN_STR]) {
 
 //	while (fscanf (fp, "%s", lines[*n])) {
 
-	(*n)++;
+//	printf("%s", lines[*n]);
 
-	printf("%s", buffer);
+//	(*n)++;
+
+	printf("%s", test);
 
 	}
+	
+//	printf("%s", lines[0]);
 
   return;
 
