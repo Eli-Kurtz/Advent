@@ -31,18 +31,24 @@ void reader (FILE *fp, int *n, char lines[][LEN_STR]) {
 }
 
 
-int main (void) {
+int main () {
 
-	FILE *fp;
+	FILE* fp;
 	int n;
-	char (*temp)[LEN_STR] = malloc( NUM_STR * (sizeof(char) * LEN_STR));
+	char (*temp)[LEN_STR] = malloc( NUM_STR * sizeof(char) * LEN_STR);
 
-	fopen( "2016_three.txt", "r");
+//	seg fault before here. must be in the malloc. 
+
+//	printf("hello");
+
+	fp = fopen( "2016_three.txt", "r");
 	reader( fp, &n, temp);
 	fclose (fp);
 
 // seg fault before this point.
 
 //	printf("hello");
-	
+
+// Nope. Turns out the error was that I wasnt returning 0.
+	return 0;
 }
