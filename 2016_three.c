@@ -9,28 +9,24 @@
 
 void reader (FILE *fp, int *n, char lines[][LEN_STR]) {
 
-// seg fault before this point
-
-//	printf("hello");
-
 	char buffer[LEN_STR] = {'\0'};
 
 	while (fgets (buffer, LEN_STR, fp) != NULL) {
 
-	scanf(buffer, "%s", lines[*n]);
+	sscanf (buffer, "%s %s %s", lines[*n], lines[*n+1], lines[*n+2]);
 
-//	printf("hello");
-//	fscanf(buffer, "%s %s %s", lines[*n], lines[*n+1], lines[*n+2]);
-
-// https://www.tutorialspoint.com/c_standard_library/c_function_scanf.htm	
+//https://www.tutorialspoint.com/c_standard_library/c_function_sscanf.htm
+//This appears to be part of the problem. I cannot use fscanf or scanf because I am reading from a 1D array, not a file or i/o.
 
 //	strncpy (lines[*n], buffer, LEN_STR);
 
 // unsure if I need the third argument, LEN_STR. gcc says I do, but still seg fault.
 
+//	while (fscanf (fp, "%s", lines[*n])) {
+
 	(*n)++;
 
-//	printf("%s", lines[0]);
+	printf("%s", buffer);
 
 	}
 
