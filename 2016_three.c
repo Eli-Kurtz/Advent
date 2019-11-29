@@ -1,53 +1,48 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
-#include<math.h>
-#include<stdbool.h>
-#include<stddef.h>
-#include<ctype.h>
 
-void assess_tri (int count) {
+#define NUM_STR  1000
+#define LEN_STR  100
 
-	FILE* ptr;
-	int n[3], i, sum, inner_count;
 
-	ptr = fopen("2016_three.txt", "r");
-	while (i < 3) {
-		fscanf( ptr, "%d", &n[i]);
-		i = (i + 1);
-		}
 
-	fclose( ptr );
- 
-	for (i=0; i<3; i++) {
-		printf("\n%d\n", n[i]);
-		}
+void reader (FILE *fp, int *n, char lines[][LEN_STR]) {
 
-	sum = n[0] + n[1] + n[2];
-	
-	for (i=0; i<3; i++) {
-		if ((sum - n[i]) > (n[i])) {
-			inner_count = inner_count + 1;
-			}
-		}
+// seg fault before this point
 
-	if (inner_count == 3) {
-		count = count + 1;
-		printf("%d", count);
-		printf("this is a triangle");
-		}
+//	printf("hello");
 
-	else {
-		printf("this is NOT a triangle");
-		}
+	char buffer[LEN_STR] = {'\0'};
 
-	return;
+	while (fgets (buffer, LEN_STR, fp) != NULL) {
+
+	strncpy (lines[*n], buffer, LEN_STR);
+
+// unsure if I need the third argument, LEN_STR. gcc says I do, but still seg fault.
+
+	(*n)++;
+	printf("%s", buffer);
+
+	}
+
+  return;
 
 }
 
-int  main () {
 
-	assess_tri (0);
+int main (void) {
 
-return (0);
+	FILE *fp;
+	int n;
+	char (*temp)[LEN_STR] = malloc( NUM_STR * (sizeof(char) * LEN_STR));
+
+	fopen( "2016_three.txt", "r");
+	reader( fp, &n, temp);
+	fclose (fp);
+
+// seg fault before this point.
+
+//	printf("hello");
+	
 }
