@@ -2,7 +2,7 @@
 #include<stdlib.h>
 #include<string.h>
 
-#define NUM_STR  1000
+#define NUM_STR  10000
 #define LEN_STR  100
 
 
@@ -14,14 +14,14 @@ void reader (FILE *fp, int *n, char lines[][LEN_STR]) {
 
 	while (fgets (buffer, LEN_STR, fp) != NULL) {
 
-	sscanf (buffer, "%s", test);
+//	sscanf (buffer, "%s", test);
 
 //	sscanf (buffer, "%s %s %s", lines[*n], lines[*n+1], lines[*n+2]);
 
 //https://www.tutorialspoint.com/c_standard_library/c_function_sscanf.htm
 //This appears to be part of the problem. I cannot use fscanf or scanf because I am reading from a 1D array, not a file or i/o.
 
-//	strncpy (lines[*n], buffer, LEN_STR);
+	strncpy (lines[*n], buffer, LEN_STR);
 
 // unsure if I need the third argument, LEN_STR. gcc says I do, but still seg fault.
 
@@ -29,9 +29,9 @@ void reader (FILE *fp, int *n, char lines[][LEN_STR]) {
 
 //	printf("%s", lines[*n]);
 
-//	(*n)++;
+	(*n)++;
 
-	printf("%s", test);
+//	printf("%s", test);
 
 	}
 	
@@ -53,6 +53,26 @@ int main () {
 	fclose (fp);
 
 	char keeper[n][LEN_STR];
+	
+	for (int i=0; i < n; i++) {
+
+		strncpy( keeper[i], temp[i], LEN_STR);
+
+	}
+
+	
+	printf("%s", keeper[0]);	
 
 	return 0;
 }
+
+
+
+
+
+
+
+
+
+
+

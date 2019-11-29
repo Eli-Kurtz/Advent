@@ -9,7 +9,9 @@ def read (i):
 
 	triangle = f.readlines()
 							#https://www.geeksforgeeks.org/reading-writing-text-files-python/
-	array = triangle[i].split(" ")		
+	array = triangle[i].split()		
+
+	print(array)
 
 	a = (array[2])
 	b = (array[4])
@@ -35,5 +37,5 @@ def read (i):
 
 	read(i+1)
 
-read (0)
+read (3)
 

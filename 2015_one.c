@@ -3,31 +3,35 @@
 #include<string.h>
 #include<math.h>
 
-int main () {
+#define LENGTH_STRING 100
+#define HUGE_NUMBER 10000
 
-	FILE* fp;
-	int n, i=0;
-	char a[1000];
-	fp = fopen("2015_one.txt", "r");
-	
-	while (1) {
-		
-		fscanf( fp, "%c", &a[i]);  
-		i = (i+1);
-		if (feof( fp )) {
-			break;
-			}
-		}
 
-	fclose( fp );	
-	
-	printf("%c", a[1]);
+void reader (FILE* fp, int* n, char lines[][LENGTH_STRING]) {
+
+        char buffer[LENGTH_STRING] = {'\0'};
+
+        *n = 0;
+
+        while (fscanf (buffer, "%c", fp) != NULL) {
+                strcpy( lines[*n], buffer );
+                (*n)++;
+        }
+        printf("%c", lines[0]);
 
 }
 
-void run () {
 
-	main();
+int main () {
 
+	FILE* fp;
+	int n;
+	
+	char (*temp)[LENGTH_STRING] = malloc(HUGE_NUMBER * (sizeof(char) * LENGTH_STRING));
+
+	fp = fopen("2015_one.txt", "r");
+	reader( fp, &n, temp );
+	fclose( fp );
+	
 }
 
