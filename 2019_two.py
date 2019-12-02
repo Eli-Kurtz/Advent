@@ -3,7 +3,7 @@
 def read ():
 
 	array = []
-
+	
 	f = open("2019_two.txt", "r")
 
 	while True:
@@ -12,10 +12,9 @@ def read ():
 		if not op_code:
 			break
 
-	print(array)
+	print(array[0])
 
-	
-
+#	op_code.split(",")
 
 
 
