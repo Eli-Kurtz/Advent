@@ -14,10 +14,10 @@ def compute (listy):
 			x = (int(listy[n+1]))
 			y = (int(listy[n+2]))
 			add = (int(listy[x]) + int(listy[y]))
-			print("add")
+			print("the opcode at position n is a 1, so we will add")
 			print(add)
 			listy[n+3] = add
-			print(listy[n+3])
+			print("the position where add will be stored", listy[n+3])
 			n = n+4
 	
 		elif (int(listy[n]) == 0):
@@ -33,7 +33,7 @@ def compute (listy):
 		elif (int(listy[n]) != 1 or 0):
 			break 
 
-	print(listy[0])
+	print(listy)
 
 
 
