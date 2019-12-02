@@ -8,10 +8,24 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <math.h>
 
 #define NUM_STR 10000
 #define LEN_STR 100
 
+
+int math_it (char input[]) {
+    
+    float mass = atof(input);
+    //https://www.tutorialspoint.com/c_standard_library/c_function_atof.htm
+    int round = floor(mass / 3);
+    //https://fresh2refresh.com/c-programming/c-arithmetic-functions/c-floor-function/
+    //printf("the input mass is %f", mass);
+    //printf("\n%d\n", round);
+
+    return 0;
+    
+}
 
 void reader (FILE *fp, int *n, char lines[][LEN_STR]) {
     
@@ -44,7 +58,11 @@ int main () {
         strncpy( keeper[i], temp[i], LEN_STR);
     }
     
-    //printf("%s", keeper[0]);
+    
+    for (int i=0; i < n; i++) {
+        
+        math_it(keeper[i]);
+    }
     
     free(temp);
     
