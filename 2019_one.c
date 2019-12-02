@@ -13,18 +13,25 @@
 #define NUM_STR 10000
 #define LEN_STR 100
 
-
 int math_it (char input[], int* fuel_total) {
     
+    int final_individual_fuel;
     float mass = atof(input);
     //https://www.tutorialspoint.com/c_standard_library/c_function_atof.htm
     int fuel = floor((mass / 3) - 2);
     //https://fresh2refresh.com/c-programming/c-arithmetic-functions/c-floor-function/
     //printf("the input mass is %f", mass);
     //printf("\n%d\n", round);
-    (*fuel_total) = *fuel_total+fuel;
+    //(*fuel_total) = *fuel_total+fuel;
+    while (1) {
+        
+        final_individual_fuel = (floor(fuel / 3) - 2);
+        printf("%d", final_individual_fuel);
+        if (final_individual_fuel < 0) {
+            break;
+        }
+    }
     
-
     return 0;
     
 }
