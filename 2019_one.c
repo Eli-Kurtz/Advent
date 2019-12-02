@@ -25,7 +25,7 @@ int math_it (char input[], int* fuel_total) {
     (*fuel_total) = *fuel_total+fuel;
     
 
-    return 1;
+    return 0;
     
 }
 
@@ -59,7 +59,6 @@ int main () {
         
         strncpy( keeper[i], temp[i], LEN_STR);
     }
-    
     
     for (int i=0; i < n; i++) {
         
