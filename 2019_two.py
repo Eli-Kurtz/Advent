@@ -1,24 +1,51 @@
 
 
 
-def compute (listy, n):
+def compute (listy):
 
-	total = 0	
+	n = 0
+	multiply = 0
+	add = 0
+	count = 0
 
-	if (listy[n] == 1):
-		print
+	while (listy[n]):
+
+		if (int(listy[n]) == 1):
+			x = (int(listy[n+1]))
+			y = (int(listy[n+2]))
+			add = (int(listy[x]) + int(listy[y]))
+			print("add")
+			print(add)
+			listy[n+3] = add
+			print(listy[n+3])
+			n = n+4
 	
-	if (listy[n] == 0):
+		elif (int(listy[n]) == 0):
+			x = (int(listy[n+1]))
+			y = (int(listy[n+2]))                
+			multiply = (int(listy[x]) * int(listy[y]))
+			print("multiply")
+			print(multiply)		
+			listy[n+3] = multiply
+			print(listy[n+3])
+			n = n+4
 		
+		elif (int(listy[n]) != 1 or 0):
+			break 
+
+	print(listy[0])
+
 
 
 def read ():
 
 	op_code = []
-	n = 0
 	f = open("2019_two.txt", "r")
 	op_code = (f.read())
 	listy = op_code.split(",")
-	compute(listy, n)	
+#	print(listy)
+	compute(listy)	
+
+
 
 read()
