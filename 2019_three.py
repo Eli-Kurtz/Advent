@@ -1,8 +1,24 @@
 
-def str_to_int (mixed):
-	
-	print(mixed[1]) 
 
+def join_three (mixed):
+	
+	new_array = []
+	n = 0	
+	for i in (mixed):
+
+		a = mixed[n][0]
+		b = int(mixed[n][1]) * 100
+		c = int(mixed[n][2]) * 10
+		d = int(mixed[n][3])
+
+		z = b + c + d
+
+		new_array.append(a)
+		new_array.append(z)
+
+		n = n+1
+
+	return new_array	
 
 def first (mixed):
 
@@ -63,8 +79,10 @@ def read ():
 	wire_1 = first(wire_1)
 	wire_2 = first(wire_2)	
 	
-	wire_1 = str_to_int(wire_1)
-#	print(wire_1)
+	wire_1 = join_three(wire_1)
+	
+#	wire_1 = str_to_int(wire_1)
+	print(wire_1)
 
 #	wire_1 = list(map(int, wire_1)
 #this isnt working
