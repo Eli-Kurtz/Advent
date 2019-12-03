@@ -1,26 +1,44 @@
 
+#going to have to print out / write to file / array all the values in the range of z so i can see where the crosses are
+
+
 def first (mixed):
 
 	n = 0
-	z = 0
+	collecting = []
 	for i in mixed:
 
 		if (mixed[n][0]) == "R":
+			mixed[n][0] = 1
 			mixed[n][1] = int(mixed[n][1])
-			mixed[n][1] = z
+			z = (mixed[n][1])
 			for i in range(z):
-				print("R" + i)	
+				cord = ("R", i)
+				collecting.append(cord)	
 		elif (mixed[n][0]) == "L":
 			mixed[n][0] = 2
 			mixed[n][1] = int(mixed[n][1])
+			z = (mixed[n][1])
+			for i in range(z):
+                                cord = ("L", i)
+                                collecting.append(cord)
 		elif (mixed[n][0]) == "U":
 			mixed[n][0] = 3
 			mixed[n][1] = int(mixed[n][1])
+			z = (mixed[n][1])
+			for i in range(z):
+                                cord = ("U", i)
+                                collecting.append(cord)
 		elif (mixed[n][0]) == "D":
 			mixed[n][0] = 4
 			mixed[n][1] = int(mixed[n][1])
+			z = (mixed[n][1])
+			for i in range(z):
+                                cord = ("D", i)
+                                collecting.append(cord)
 		n = n+1
-			
+
+	print(collecting)			
 	return mixed
 
 
@@ -63,7 +81,9 @@ def read ():
 	wire_1 = first(wire_1)
 	wire_2 = first(wire_2)
 
-	print(wire_1)
+#	wire_1 = stuff(wire_1)
+
+#	print(wire_1)
 
 read()
 
