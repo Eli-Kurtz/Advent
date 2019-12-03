@@ -5,21 +5,23 @@ def compute (listy, pointer):
 
 		a=0
 		b=0
-	
+		c=0
 		if (int(listy[pointer]) == 1):
 			listy[listy[pointer + 1]] = a
 			listy[listy[pointer + 2]] = b
-			listy[listy[pointer + 3]] = a + b
+			listy[listy[pointer + 3]] = c
+			c = b + a
 			return listy, pointer + 4		
 	
-		elif (int(listy[pointer]) == 0):
+		elif (int(listy[pointer]) == 2):
 			listy[listy[pointer + 1]] = a 
 			listy[listy[pointer + 2]] = b
-			listy[listy[pointer + 3]] = a * b
+			listy[listy[pointer + 3]] = c
+			c = b * a
 			return listy, pointer + 4
 		
-		elif (int(listy[pointer]) != 1 or 0):
-			print("the program broke at position", pointer)
+		elif (int(listy[pointer]) != 1 or 2):
+			print("the program broke at position", pointer, "which has a value of", listy[pointer])
 			return listy, -99 
 
 
@@ -41,6 +43,7 @@ def read ():
 	copy[:] = listy[:]
 
 	while (pointer != -99):
+		print(pointer)
 		listy, pointer = compute(listy, pointer)	
 
 	print(copy)	
