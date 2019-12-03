@@ -4,6 +4,9 @@
 
 def first (mixed):
 
+	x = 0
+	y = 0
+
 	n = 0
 	collecting = []
 	for i in mixed:
@@ -12,6 +15,7 @@ def first (mixed):
 			mixed[n][0] = 1
 			mixed[n][1] = int(mixed[n][1])
 			z = (mixed[n][1])
+			x = x + z
 			for i in range(z):
 				cord = ("R", i)
 				collecting.append(cord)	
@@ -19,6 +23,7 @@ def first (mixed):
 			mixed[n][0] = 2
 			mixed[n][1] = int(mixed[n][1])
 			z = (mixed[n][1])
+			x = x - z
 			for i in range(z):
                                 cord = ("L", i)
                                 collecting.append(cord)
@@ -26,6 +31,7 @@ def first (mixed):
 			mixed[n][0] = 3
 			mixed[n][1] = int(mixed[n][1])
 			z = (mixed[n][1])
+			y = y + z
 			for i in range(z):
                                 cord = ("U", i)
                                 collecting.append(cord)
@@ -33,15 +39,17 @@ def first (mixed):
 			mixed[n][0] = 4
 			mixed[n][1] = int(mixed[n][1])
 			z = (mixed[n][1])
+			y = y - z
 			for i in range(z):
                                 cord = ("D", i)
                                 collecting.append(cord)
 		n = n+1
 
-	print(collecting)			
-	return mixed
+	#print(collecting)
 
-
+#i have used this 'collecting' just in case it is helpful in identifying the coordinates of the cross
+			
+	return mixed, collecting, x, y
 
 
 
@@ -67,6 +75,12 @@ def concat (mixed):
 
 
 def read ():
+
+	x_1 = 0
+	x_2 = 0
+	y_1 = 0
+	y_2 = 0
+	n = 0
 	i =0
 	f = open("2019_three.txt", "r")
 	wire_1 = f.readline()
@@ -78,8 +92,17 @@ def read ():
 	wire_1 = concat(wire_1)
 	wire_2 = concat(wire_2)			
 
-	wire_1 = first(wire_1)
-	wire_2 = first(wire_2)
+	wire_1, compare_1, x_1, y_1 = first(wire_1)
+	wire_2, compare_2, x_1, y_1 = first(wire_2)
+
+	while (compare_1[n] != False):
+		if compare_1[n][0] == compare_2[n][0] and x_1 == x_2 and y_1 == y_2:
+			print("match")
+			n = n+1
+		elif compare_1[n][0] != compare_2[n][0]:
+			print("void")
+			n = n+1
+
 
 #	wire_1 = stuff(wire_1)
 
