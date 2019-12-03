@@ -1,51 +1,49 @@
 
 
 
-def compute (listy):
+def compute (listy, pointer):
 
-	n = 0
-	multiply = 0
-	add = 0
-	count = 0
-
-	while (listy[n]):
-
-		if (int(listy[n]) == 1):
-			x = (int(listy[n+1]))
-			y = (int(listy[n+2]))
-			add = (int(listy[x]) + int(listy[y]))
-			print("the opcode at position n is a 1, so we will add")
-			print(add)
-			listy[n+3] = add
-			print("the position where add will be stored", listy[n+3])
-			n = n+4
+		a=0
+		b=0
 	
-		elif (int(listy[n]) == 0):
-			x = (int(listy[n+1]))
-			y = (int(listy[n+2]))                
-			multiply = (int(listy[x]) * int(listy[y]))
-			print("multiply")
-			print(multiply)		
-			listy[n+3] = multiply
-			print(listy[n+3])
-			n = n+4
+		if (int(listy[pointer]) == 1):
+			listy[listy[pointer + 1]] = a
+			listy[listy[pointer + 2]] = b
+			listy[listy[pointer + 3]] = a + b
+			return listy, pointer + 4		
+	
+		elif (int(listy[pointer]) == 0):
+			listy[listy[pointer + 1]] = a 
+			listy[listy[pointer + 2]] = b
+			listy[listy[pointer + 3]] = a * b
+			return listy, pointer + 4
 		
-		elif (int(listy[n]) != 1 or 0):
-			break 
+		elif (int(listy[pointer]) != 1 or 0):
+			print("the program broke at position", pointer)
+			return listy, -99 
 
-	print(listy)
 
 
 
 def read ():
-
+	
+	pointer = 0
 	op_code = []
+
 	f = open("2019_two.txt", "r")
 	op_code = (f.read())
-	listy = op_code.split(",")
-#	print(listy)
-	compute(listy)	
+	f.close()
+	listy = op_code.rstrip().split(",")
 
+	listy = list(map(int, listy))
+#https://stackoverflow.com/questions/7368789/convert-all-strings-in-a-list-to-int
+	copy = []	
+	copy[:] = listy[:]
 
+	while (pointer != -99):
+		listy, pointer = compute(listy, pointer)	
+
+	print(copy)	
+	print(listy)
 
 read()
