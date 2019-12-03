@@ -25,12 +25,21 @@ def first (mixed):
 
 def concat_1 (mixed):
 	
+	new_array = []
+
 	for i in mixed:
-		print(i[:1])
+
+		inner_array = []
+
+		a = (i[:1])
 #https://www.odoo.com/forum/help-1/question/how-to-get-a-first-character-from-a-string-74789
-		i = (i[1:])
-		print(i)	
-	return mixed
+		b = (i[1:])
+
+		inner_array.append(a)
+		inner_array.append(b)	
+		new_array.append(inner_array)
+
+	return new_array 
 
 
 
@@ -46,7 +55,7 @@ def read ():
 	
 	wire_1 = concat_1(wire_1)
 
-#	print(wire_1)			
+	print(wire_1)			
 
 
 
