@@ -4,10 +4,19 @@ def first (mixed):
 	n = 0
 
 	for i in mixed:
-		if (mixed[n][0]) == "R":
-			print("hello")
-		n = n+1
 
+		if (mixed[n][0]) == "R":
+			mixed[n][0] = 1
+		elif (mixed[n][0]) == "L":
+			mixed[n][0] = 2
+		elif (mixed[n][0]) == "U":
+                        mixed[n][0] = 3
+		elif (mixed[n][0]) == "D":
+                        mixed[n][0] = 4
+
+		n = n+1
+	
+	return mixed
 
 
 
@@ -46,6 +55,9 @@ def read ():
 	wire_1 = concat_1(wire_1)
 	wire_2 = concat_2(wire_2)
 	
-	first(wire_1)
+	wire_1 = first(wire_1)
+	wire_2 = first(wire_2)	
+
+
 
 read()
