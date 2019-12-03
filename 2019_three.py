@@ -95,14 +95,16 @@ def read ():
 	wire_1, compare_1, x_1, y_1 = first(wire_1)
 	wire_2, compare_2, x_1, y_1 = first(wire_2)
 
-	while (compare_1[n] != False):
+	while (compare_1[n]):
 		if compare_1[n][0] == compare_2[n][0] and x_1 == x_2 and y_1 == y_2:
-			print("match")
+	#this line isnt goint to work because i have returned the final values of x and y. I need the x and y values as a stream	
+	
+		print("match")
 			n = n+1
 		elif compare_1[n][0] != compare_2[n][0]:
-			print("void")
+		#	print("void")
 			n = n+1
-
+	return
 
 #	wire_1 = stuff(wire_1)
 
