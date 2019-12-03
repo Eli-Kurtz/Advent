@@ -1,25 +1,5 @@
 
 
-def join_three (mixed):
-	
-	new_array = []
-	n = 0	
-	for i in (mixed):
-
-		a = mixed[n][0]
-		b = int(mixed[n][1]) * 100
-		c = int(mixed[n][2]) * 10
-		d = int(mixed[n][3])
-
-		z = b + c + d
-
-		new_array.append(a)
-		new_array.append(z)
-
-		n = n+1
-
-	return new_array	
-
 def first (mixed):
 
 	n = 0
@@ -41,27 +21,17 @@ def first (mixed):
 
 
 
-def concat_2 (mixed):
-
-	array_2 = []
-
-	for i in mixed:
-		array_2.append(list(i))
-	
-	return array_2
 
 
 def concat_1 (mixed):
-
-	array_1 = []
 	
 	for i in mixed:
-		array_1.append(list(i))
-	
-	return array_1
+		print(i[:1])
+#https://www.odoo.com/forum/help-1/question/how-to-get-a-first-character-from-a-string-74789
+		i = (i[1:])
+		print(i)	
+	return mixed
 
-#https://www.geeksforgeeks.org/python-split-string-into-list-of-characters/
-#trying to init a 2d array. not working		
 
 
 
@@ -73,18 +43,16 @@ def read ():
 	f.close()
 	wire_1 = wire_1.rstrip().split(",")
 	wire_2 = wire_2.rstrip().split(",")
+	
 	wire_1 = concat_1(wire_1)
-	wire_2 = concat_2(wire_2)
-	
-	wire_1 = first(wire_1)
-	wire_2 = first(wire_2)	
-	
-	wire_1 = join_three(wire_1)
-	
-#	wire_1 = str_to_int(wire_1)
-	print(wire_1)
 
-#	wire_1 = list(map(int, wire_1)
-#this isnt working
+#	print(wire_1)			
+
+
 
 read()
+
+
+
+
+
