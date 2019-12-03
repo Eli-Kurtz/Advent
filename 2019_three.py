@@ -1,4 +1,9 @@
 
+def str_to_int (mixed):
+	
+	print(mixed[1]) 
+
+
 def first (mixed):
 
 	n = 0
@@ -57,7 +62,11 @@ def read ():
 	
 	wire_1 = first(wire_1)
 	wire_2 = first(wire_2)	
+	
+	wire_1 = str_to_int(wire_1)
+#	print(wire_1)
 
-
+#	wire_1 = list(map(int, wire_1)
+#this isnt working
 
 read()
