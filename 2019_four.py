@@ -1,19 +1,17 @@
-def doubles(array, n):
+def doubles(array, n, a, b):
     x = 0
     clean_array = []
-    a = 0
-    b = 1
 
     while x < n:
         if array[x][a] == array[x][b]:
-            a += 1
-            b += 1
+          #  a += 1
+           # b += 1
             clean_array.append(array[x])
-            print("hello")
-            if b == 6:
-                break
+            #if b == 6:
+             #   break
         x += 1
 
+    print(clean_array)
     return clean_array
 
 
@@ -48,7 +46,8 @@ def array_it ():
         a += 1
 
     possible_password = remove_decrease(possible_password, password_range)
-    possible_password = doubles(possible_password, password_range)
+    for i in range(5):
+        possible_password = doubles(possible_password, password_range, i, i+1)
 
     print(possible_password)
 
