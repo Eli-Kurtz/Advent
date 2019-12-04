@@ -1,6 +1,19 @@
 import itertools
 
 
+def count(array):
+
+    x = 0
+    n = len(array)
+    clean_array = []
+    while x < n:
+        for i in range(10):
+            if array[x].count(i) == 2:
+                clean_array.append(array[x])
+        x += 1
+    return clean_array
+
+
 def doubles(array):
 
     x = 0
@@ -15,7 +28,7 @@ def doubles(array):
                 #am I appending extra values?
         x += 1
 
-    print(clean_array)
+    #print(clean_array)
     return clean_array
 
 
@@ -41,7 +54,7 @@ def array_it():
     a = low
     b = high
     i = 0
-    flatten = lambda l: [item for sublist in l for item in sublist]
+    #flatten = lambda l: [item for sublist in l for item in sublist]
 
     while a < b:
 
@@ -55,6 +68,8 @@ def array_it():
     possible_password = doubles(possible_password)
 
     possible_password.sort()
+
+    possible_password = count(possible_password)
 
     print(len(list(possible_password for possible_password,_ in itertools.groupby(possible_password))))
     #https://stackoverflow.com/questions/2213923/removing-duplicates-from-a-list-of-lists
