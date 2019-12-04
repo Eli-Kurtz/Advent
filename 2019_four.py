@@ -1,3 +1,4 @@
+
 def doubles(array, a, b):
 
     x = 0
@@ -25,32 +26,34 @@ def remove_decrease(array, n):
     return clean_array
 
 
-def array_it ():
+def array_it():
 
     possible_password = []
     buffer_2 = []
-    low = 387638
-    high = 919123
+    low = 123400
+    high = 123500
     password_range = high - low
     a = low
     b = high
     i = 0
+    flatten = lambda l: [item for sublist in l for item in sublist]
 
     while a < b:
-
         x = list(map(int, str(a)))
         possible_password.append(x)
         i += 1
         a += 1
 
     possible_password = remove_decrease(possible_password, password_range)
-    for i in range(4):
+
+    for i in range(5):
+
         buffer = doubles(possible_password, i, i+1)
-        buffer_2.append(buffer)
+        buffer_2.append(buffer[:])
+        possible_password = buffer_2
 
-    possible_password = buffer_2
-
-    print(len(possible_password))
+    print(possible_password)
+    print(len(flatten(possible_password)))
 
 
 array_it()
