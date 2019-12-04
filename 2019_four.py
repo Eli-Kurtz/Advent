@@ -1,11 +1,18 @@
-def doubles(array, a, b):
+import itertools
+
+
+def doubles(array):
 
     x = 0
     n = len(array)
     clean_array = []
     while x < n:
-        if array[x][a] == array[x][b]:
-            clean_array.append(array[x])
+        for i in range(5):
+            a = i
+            b = i+1
+            if array[x][a] == array[x][b]:
+                clean_array.append(array[x])
+                #am I appending extra values?
         x += 1
 
     print(clean_array)
@@ -25,10 +32,9 @@ def remove_decrease(array, n):
     return clean_array
 
 
-def array_it ():
+def array_it():
 
     possible_password = []
-    buffer_2 = []
     low = 387638
     high = 919123
     password_range = high - low
@@ -45,13 +51,15 @@ def array_it ():
         a += 1
 
     possible_password = remove_decrease(possible_password, password_range)
-    for i in range(5):
-        buffer = doubles(possible_password, i, i+1)
-        buffer_2.append(buffer)
 
-    possible_password = buffer_2
+    possible_password = doubles(possible_password)
 
-    print(len(flatten(possible_password)))
+    possible_password.sort()
+
+    print(len(list(possible_password for possible_password,_ in itertools.groupby(possible_password))))
+    #https://stackoverflow.com/questions/2213923/removing-duplicates-from-a-list-of-lists
+
+    #print(len(possible_password))
 
 
 array_it()
