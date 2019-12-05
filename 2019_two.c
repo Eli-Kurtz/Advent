@@ -52,7 +52,7 @@ int main () {
     n = strlen(opcodes);
     //char clean_array[n];
     
-    int clean[133] = {0};
+    int clean[133][1];
     //I only know the len 133 after running the below loop and printing i. maybe clean up later
     
     char* token = strtok(opcodes, ",");
@@ -62,13 +62,16 @@ int main () {
         a = atoi(token);
         token = strtok(NULL, ",");
         
-        clean[i] = a;
-        
+        clean[i][0] = a;
+        //printf("hello");
         i++;
     //https://www.geeksforgeeks.org/strtok-strtok_r-functions-c-examples/
     }
     
-    preform(clean);
+    for (i=0; i<133; i++) {
+        printf("\n%d\n", clean[i][0]);
+    }
+    //preform(clean);
     //printf("%d", clean[0]);
     
 }
