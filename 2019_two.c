@@ -16,7 +16,7 @@
 int main () {
 
     FILE* fp;
-    int n, i=0;
+    int n, i=0, a;
     char opcodes[LEN_STR];
     fp = fopen( "2019_two.txt", "r");
     fscanf(fp, "%s", opcodes);
@@ -24,16 +24,25 @@ int main () {
     n = strlen(opcodes);
     char clean_array[n];
     
-    //printf("%c", opcodes[0]);
+    int clean[133] = {0};
+    //I only know the len 133 after running the below loop and printing i. maybe clean up later
     
-    while (i<n){
-       
-        strncpy(&clean_array[i], opcodes, 2);
-        i++;
-        //printf("hello");
+    char* token = strtok(opcodes, ",");
+    
+    while (token != NULL) {
+        printf("%s\n", token);
+        a = atoi(token);
+        token = strtok(NULL, ",");
         
+        clean[i] = a;
+        
+        i++;
+    //https://www.geeksforgeeks.org/strtok-strtok_r-functions-c-examples/
     }
     
-    printf("%s", &clean_array[0]);
+    //printf("\n%d\n", clean[0]);
+    
+    
+    
     
 }
