@@ -13,35 +13,27 @@
 #define LEN_STR 1000
 #define TRUE 1
 
-
-int size_up (char input, int n) {
-    
-    char clean_str[n];
-    
-    for (int i=0; i<n; i++){
-        
-        clean_str[i] = input[i];
-        
-    }
-    
-    printf("%s", clean_str[0]);
-    
-}
-
-
 int main () {
 
     FILE* fp;
-    int n;
+    int n, i=0;
     char opcodes[LEN_STR];
     fp = fopen( "2019_two.txt", "r");
     fscanf(fp, "%s", opcodes);
     fclose (fp);
     n = strlen(opcodes);
+    char clean_array[n];
     
     //printf("%c", opcodes[0]);
-    size_up(opcodes, n);
     
-    //printf("%d", n);
+    while (i<n){
+       
+        strncpy(&clean_array[i], opcodes, 2);
+        i++;
+        //printf("hello");
+        
+    }
+    
+    printf("%s", &clean_array[0]);
     
 }
