@@ -12,31 +12,29 @@
 #define NUM_STR 10
 #define LEN_STR 1000
 
-int preform(int clean[]) {
+int preform(int clean[][1]) {
     
     int n = 0, a = 0;
     
-    while (clean[n] != NULL) {
-        //problem is here I think.
-        if (clean[n] == 1) {
-            a = clean[n+3];
-            clean[a] = clean[n+1] + clean[n+2];
+    while (clean[n][0] != NULL) {
+        //problem is here I think. Do i need address?
+        if (clean[n][0] == 1) {
+            a = clean[n+3][0];
+            clean[a][0] = clean[n+1][0] + clean[n+2][0];
             n = n+4;
         }
-        else if (clean[n] == 2) {
-            a = clean[n+3];
-            clean[a] = clean[n+1] * clean[n+2];
+        else if (clean[n][0] == 2) {
+            a = clean[n+3][0];
+            clean[a][0] = clean[n+1][0] * clean[n+2][0];
             n = n+4;
         }
         else {
             break;
         }
-        
-        printf("%d", clean[0]);
-        
+        //printf("%d", clean[0]);
     }
     
-    return 0;
+    return clean;
 }
 
 
@@ -51,8 +49,9 @@ int main () {
     fclose (fp);
     n = strlen(opcodes);
     //char clean_array[n];
+    int size = 133;
+    int clean[size][1];
     
-    int clean[133][1];
     //I only know the len 133 after running the below loop and printing i. maybe clean up later
     
     char* token = strtok(opcodes, ",");
@@ -68,10 +67,12 @@ int main () {
     //https://www.geeksforgeeks.org/strtok-strtok_r-functions-c-examples/
     }
     
-    for (i=0; i<133; i++) {
+    preform(clean);
+    
+    for (i=0; i<size; i++) {
         printf("\n%d\n", clean[i][0]);
     }
-    //preform(clean);
-    //printf("%d", clean[0]);
+    
+    //printf("%d", clean[0][0]);
     
 }
