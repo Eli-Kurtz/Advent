@@ -20,6 +20,8 @@ int preform(int clean[][1]) {
         //problem is here I think. Do i need address?
         if (clean[n][0] == 1) {
             a = clean[n+3][0];
+            //printf("here I am");
+            //not entering while loop
             clean[a][0] = clean[n+1][0] + clean[n+2][0];
             n = n+4;
         }
