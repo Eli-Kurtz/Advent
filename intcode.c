@@ -11,31 +11,35 @@
 
 #define LEN_STR 1000
 
-int compute (int *array[], int array_len){
+void compute (int *array, int array_len){
  
-    int x = 0, a = 0;
+    int a = 0, x = 0, position = 0;
 
-    printf("\n%d\n", *array+1);
+    //printf("\n%d\n", *array);
     
- /*   while (x < array_len) {
+    while (x < array_len) {
         
-        if ((*array+x) == 1){
-            (*array+(x+1) + *array+(x+2)) = a;
-            *array+(x+3) = a;
+        if (*(array+x) == 1){
+            position = *(array+(x+3));
+            printf("position is %d", position);
+            *(array+(position)) = *(array+(x+1)) + *(array+(x+2));
             //array+(x+3) = (*array+(x+1) + *array+(x+2));
             x = x+4;
+            position = 0;
         }
-        if ((*array+x) == 2){
-            array+(x+3) = (*array+(x+1) * *array+(x+2));
+        else if (*(array+x) == 2){
+            position = *(array+(x+3));
+            *(array+(position)) = *(array+(x+1)) * *(array+(x+2));
             x = x+4;
+            position = 0;
         }
         else {
-            printf("FATAL");
+            printf("\n%d was FATAL", *(array+x));
             break;
         }
-    }*/
+    }
     
-    return 0;
+    return;
 }
 
 
@@ -49,6 +53,7 @@ int main () {
     fclose (fp);
     
     int buffer[LEN_STR];
+    
     char* token = strtok(opcodes, ",");
     
     while (token != NULL) {
@@ -57,17 +62,24 @@ int main () {
         buffer[array_len] = int_token;
         token = strtok(NULL, ",");
         array_len++;
+        //https://www.geeksforgeeks.org/strtok-strtok_r-functions-c-examples/
     }
     
     int clean[array_len];
     
     for (x=0; x<array_len; x++){
         clean[x] = buffer[x];
+        printf("%d-", clean[x]);
     }
     
-    //printf("%d", clean[0]);
+    printf("\n");
+    compute(clean, array_len);
+    printf("\n");
     
-    compute(&clean, array_len);
+    
+    for (x=0; x<array_len; x++){
+        printf("%d-", clean[x]);
+    }
     
 }
 
