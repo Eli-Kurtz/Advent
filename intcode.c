@@ -24,7 +24,8 @@ void compute (int *array, int array_len){
             p_one = *(array+(x+1));
             p_two = *(array+(x+2));
             //printf("position is %d", position);
-            *(array+(position)) = *(array+(x+p_one)) + *(array+(x+p_two));
+            //*(array+(position)) = *(array+()
+            *(array+(position)) = *(array+(p_one)) + *(array+(p_two));
             //array+(x+3) = (*array+(x+1) + *array+(x+2));
             x = x+4;
             position = 0;
@@ -33,7 +34,7 @@ void compute (int *array, int array_len){
             position = *(array+(x+3));
             p_one = *(array+(x+1));
             p_two = *(array+(x+2));
-            *(array+(position)) = *(array+(x+p_one)) * *(array+(x+p_two));
+            *(array+(position)) = *(array+(p_one)) * *(array+(p_two));
             x = x+4;
             position = 0;
         }
