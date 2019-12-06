@@ -13,7 +13,7 @@
 
 void compute (int *array, int array_len){
  
-    int a = 0, x = 0, position = 0;
+    int a = 0, x = 0, position = 0, p_one = 0, p_two = 0;
 
     //printf("\n%d\n", *array);
     
@@ -21,15 +21,19 @@ void compute (int *array, int array_len){
         
         if (*(array+x) == 1){
             position = *(array+(x+3));
-            printf("position is %d", position);
-            *(array+(position)) = *(array+(x+1)) + *(array+(x+2));
+            p_one = *(array+(x+1));
+            p_two = *(array+(x+2));
+            //printf("position is %d", position);
+            *(array+(position)) = *(array+(x+p_one)) + *(array+(x+p_two));
             //array+(x+3) = (*array+(x+1) + *array+(x+2));
             x = x+4;
             position = 0;
         }
         else if (*(array+x) == 2){
             position = *(array+(x+3));
-            *(array+(position)) = *(array+(x+1)) * *(array+(x+2));
+            p_one = *(array+(x+1));
+            p_two = *(array+(x+2));
+            *(array+(position)) = *(array+(x+p_one)) * *(array+(x+p_two));
             x = x+4;
             position = 0;
         }
