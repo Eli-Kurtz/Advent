@@ -11,27 +11,19 @@
 
 #define LEN_STR 1000
 
-/*int evaluate_new_array(int *clean, int array_len){
+int change_12(int blank[], int one, int two, int array_len){
     
-    int i=0, z=0;
-    while (clean[0] != 19690720) {
-        
-        for (int i=0; i<100; i++){
-            
-            for (int z=0; z<100; z++){
-                
-                clean[1] = z;
-                clean[2] = i;
-                compute(clean, array_len);
-                
-            }
-        }
-    }
-    printf("%d, and %d", z, i);
+    blank[1] = one;
+    blank[2] = two;
     
-    return 0;
+    printf("\ndigit 1 is %d and digit 2 is %d, and the result is %d", blank[1], blank[2], blank[0]);
+     /*
+    blank[1] = 0;
+    blank[2] = 0;
+    printf("\ndigit 1 is %d and digit 2 is %d", blank[1], blank[2]);
+     */
+    return blank[0];
 }
-*/
 
 int copy_array (int *clean, int array_len){
     
@@ -86,7 +78,7 @@ void compute (int *array, int array_len){
 int main () {
     
     FILE* fp;
-    int n, x, array_len=0, int_token;
+    int n, x, array_len=0, int_token, a=0;
     char opcodes[LEN_STR];
     fp = fopen( "2019_two.txt", "r");
     fscanf(fp, "%s", opcodes);
@@ -125,19 +117,21 @@ int main () {
     for (x=0; x<array_len; x++){
         printf("%d-", clean[x]);
     }
+
     
     
-    evaluate_new_array(clean, array_len);
-    
-   /* while (clean[0] != 19690720) {
-        
+    while (a != 19690720){
         for (int i=0; i<100; i++){
-            
-            for int z=0; z<100; z++)
-        }
-        
-    }
-    */
+            for (int z=0; z<100; z++){
     
+                a = change_12(clean, z, i, array_len);
+                
+                for (x=0; x<array_len; x++){
+                    printf("%d-", clean[x]);
+                }
+
+            }
+        }
+    }
 }
 
