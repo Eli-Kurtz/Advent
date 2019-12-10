@@ -11,6 +11,41 @@
 
 #define LEN_STR 1000
 
+/*int evaluate_new_array(int *clean, int array_len){
+    
+    int i=0, z=0;
+    while (clean[0] != 19690720) {
+        
+        for (int i=0; i<100; i++){
+            
+            for (int z=0; z<100; z++){
+                
+                clean[1] = z;
+                clean[2] = i;
+                compute(clean, array_len);
+                
+            }
+        }
+    }
+    printf("%d, and %d", z, i);
+    
+    return 0;
+}
+*/
+
+int copy_array (int *clean, int array_len){
+    
+    int i =0;
+    int clean_copy[array_len];
+    
+    for (i=0; i<array_len; i++){
+        clean_copy[i] = clean[i];
+    }
+    
+    return clean_copy[array_len];
+}
+
+
 void compute (int *array, int array_len){
  
     int a = 0, x = 0, position = 0, p_one = 0, p_two = 0;
@@ -77,6 +112,11 @@ int main () {
         printf("%d-", clean[x]);
     }
     
+    int clean_copy[array_len];
+    clean_copy[array_len] = copy_array(clean, array_len);
+    printf("\n\na copy was made");
+    //this may be unneccessary depending on how I proceed.
+    
     printf("\n");
     compute(clean, array_len);
     printf("\n");
@@ -85,6 +125,19 @@ int main () {
     for (x=0; x<array_len; x++){
         printf("%d-", clean[x]);
     }
+    
+    
+    evaluate_new_array(clean, array_len);
+    
+   /* while (clean[0] != 19690720) {
+        
+        for (int i=0; i<100; i++){
+            
+            for int z=0; z<100; z++)
+        }
+        
+    }
+    */
     
 }
 
