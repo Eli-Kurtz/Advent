@@ -1,18 +1,48 @@
+
 def branch(dictionary, key):
 
-    next_limb = []
-    branch_length = len(dictionary[key])
-    print("there are ", branch_length, "elements in this value")
+    limb = []
+    print("the current key is ", key)
 
-    while dictionary[key]:
-        next_limb.append(key)
+    while key in dictionary:
+        limb.append(key)
         key = dictionary[key][0]
-        if len(dictionary[key]) != 1:
-            branch(dictionary, key)
 
-        print("the next_limb array is ", next_limb)
+    # print(limb)
 
-    return next_limb
+    return limb
+
+
+def stem(dictionary):
+
+    limb = []
+
+    key = 'COM'
+
+    # print("the value of key FH4 is ", dictionary['FH4'])
+
+    # while key != 'FH4':
+    while key in dictionary:
+        # print(dictionary[key])
+        if len(dictionary[key]) > 1:
+            for i in range(len(dictionary[key])):
+                print("this ran")
+                # print(len(dictionary[key]))
+                print("the input is ", dictionary[key])
+                next_limb = (branch(dictionary, dictionary[key][i]))
+                # print(limb.append(next_limb))
+                print("the returned limb is ", next_limb)
+
+            key = dictionary[key][0]
+                # problem in here. not hitting the second key
+                # I believe this problem is fixed
+
+        else:
+            limb.append(key)
+            key = dictionary[key][0]
+            # print(limb)
+
+    print("limb is ", limb)
 
 
 def reader():
@@ -35,26 +65,9 @@ def reader():
         value = dictionary[parent]
         value.append(child)
 
-    limb = []
+    # print(dictionary['SLV'])
 
-    key = 'COM'
-
-    # print("the value of key FH4 is ", dictionary['FH4'])
-
-    while dictionary[key]:
-        limb.append(key)
-        key = dictionary[key][0]
-        if len(dictionary[key]) != 1:
-            limb.append(dictionary[key][0])
-            print("the next key would be", dictionary[key])
-            print(limb)
-            next_limb = branch(dictionary, key)
-            limb.append(next_limb)
-        elif not len(dictionary[key]):
-            quit()
-
-        print(limb)
-
+    stem(dictionary)
 
 
 reader()
